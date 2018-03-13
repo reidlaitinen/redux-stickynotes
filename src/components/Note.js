@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { deleteNote } from '../actions/notes';
 
 const Note = ({ id, title, text, dispatch}) => (
 
@@ -15,7 +16,7 @@ const Note = ({ id, title, text, dispatch}) => (
           </Card.Description>
           <div className='ui two buttons'>
             <Button basic color='green'>Edit</Button>
-            <Button basic color='red'>Delete</Button>
+            <Button onClick={ () => dispatch(deleteNote(id))} basic color='red'>Delete</Button>
           </div>
         </Card.Content>
       </Card>
