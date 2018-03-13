@@ -1,12 +1,12 @@
+import { ADD_NOTE } from '../actions/notes'
+
 const notes = ( state = [], action ) => {
-  switch(action.type) {
-    case 'NOTES':
-      return action.todos
+  switch (action.type) {
     case 'ADD_NOTE':
-      return [action.todo, ...state];
+      return [action.note, ...state]
     default:
-      return state
+      return state;
   }
 }
 
-export default todos;
+export default notes;
