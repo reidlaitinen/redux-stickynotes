@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE } from '../actions/notes'
+import { ADD_NOTE, DELETE_NOTE, UPDATE_NOTE } from '../actions/notes'
 
 const notes = ( state = [], action ) => {
   switch (action.type) {
@@ -6,6 +6,8 @@ const notes = ( state = [], action ) => {
       return [action.note, ...state]
     case DELETE_NOTE:
       return state.filter(note => note.id !== action.note)
+    case UPDATE_NOTE:
+      return (state.map(note => note.id === action.note ? action.note : note ))
     default:
       return state;
   }
