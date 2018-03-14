@@ -14,11 +14,12 @@ const Note = ({ id, title, text, dispatch}) => (
           <Card.Description>
             {text}
           </Card.Description>
-          <div className='ui two buttons'>
+          </Card.Content>
+          <Button.Group attached='bottom'>
             <Button basic color='green'>Edit</Button>
             <Button onClick={ () => dispatch(deleteNote(id))} basic color='red'>Delete</Button>
-          </div>
-        </Card.Content>
+          </Button.Group>
+        
       </Card>
       </div>
 

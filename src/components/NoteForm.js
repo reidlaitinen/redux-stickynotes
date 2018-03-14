@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions/notes';
 import { incId } from '../actions/nextId';
-import { Card } from 'semantic-ui-react';
+import { Card, Form, Input, TextArea, Button } from 'semantic-ui-react';
  
 class NoteForm extends React.Component {
   state = { title: '', text: ''}
@@ -23,27 +23,11 @@ class NoteForm extends React.Component {
   render() {
     const {title, text} = this.state
     return (
-      <div>
-        <h3>Add A Note</h3>
-        <form onSubmit={this.handleSubmit}>
-          <label for='title'>Title</label>
-          <input 
-            name='title'
-            value={title}
-            onChange={this.handleChange}
-            required
-          />
-          <br /><br />
-          <label for='text'>Text</label>
-          <textarea
-            name='text'
-            value={text}
-            onChange={this.handleChange}
-            required
-          />
-          <button type='submit'>Submit</button>
-        </form>
-      </div>
+      <Form onSubmit={this.handleSubmit}>
+        <Input fluid size='small' name='title' placeholder='Add a Note...' value={title} onChange={this.handleChange} required />
+        <TextArea autoHeight fluid name='text' placeholder='Add some text...' value={text} onChange={this.handleChange} required />
+        <Button type='submit'>Submit</Button>
+      </Form>
     )
   }
 }

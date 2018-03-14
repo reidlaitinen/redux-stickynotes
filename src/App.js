@@ -1,12 +1,15 @@
 import React from 'react';
 import NoteList from './components/NoteList';
-import logo from './logo.svg';
 import './App.css';
+import {Container, Segment, Header} from 'semantic-ui-react';
 
 const App = () => ( 
-  <div className="App">
+  <Container>
+    <Segment basic textAlign='center'>
+      <Header as="h1">Sticky Notes</Header>
+    </Segment>
     <NoteList />
-  </div>
+  </Container>
 );
 
 

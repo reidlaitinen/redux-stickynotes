@@ -5,7 +5,6 @@ const notes = ( state = [], action ) => {
     case ADD_NOTE:
       return [action.note, ...state]
     case DELETE_NOTE:
-      console.log(action.note)
       return state.filter(note => note.id !== action.note)
     default:
       return state;
