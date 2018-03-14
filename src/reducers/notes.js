@@ -7,7 +7,7 @@ const notes = ( state = [], action ) => {
     case DELETE_NOTE:
       return state.filter(note => note.id !== action.note)
     case UPDATE_NOTE:
-      return (state.map(note => note.id === action.note ? action.note : note ))
+      return (state.map(note => note.id === action.note.id ? action.note : note ))
     default:
       return state;
   }

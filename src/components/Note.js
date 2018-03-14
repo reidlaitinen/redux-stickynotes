@@ -14,7 +14,7 @@ class Note extends React.Component {
     e.preventDefault()
     const { dispatch, id } = this.props
     const { title, text } = this.state
-    dispatch(updateNote(this.id))
+    dispatch(updateNote(this.state))
     this.toggleEditMode()
     this.setState({ title: '', text: '' })
   }
@@ -51,6 +51,7 @@ class Note extends React.Component {
             <Input onChange = { () => this.handleChange()} fluid size='small' name='title' placeholder='Add a Note...' value={this.state.title} onChange={this.handleChange} required />
             <TextArea onChange = { () => this.handleChange() } autoHeight fluid name='text' placeholder='Add some text...' value={this.state.text} onChange={this.handleChange} required />
             <Button type='submit'>Submit</Button>
+            <Button onClick={this.toggleEditMode}>Cancel</Button>
           </Form>
         )
       }
