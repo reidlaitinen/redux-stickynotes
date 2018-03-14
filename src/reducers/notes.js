@@ -5,7 +5,7 @@ const notes = ( state = [], action ) => {
     case ADD_NOTE:
       return [action.note, ...state]
     case DELETE_NOTE:
-      return state.filter(note => note.id !== action.note)
+      return state.filter(note => note.id !== action.note.id)
     case UPDATE_NOTE:
       return (state.map(note => note.id === action.note.id ? action.note : note ))
     default:

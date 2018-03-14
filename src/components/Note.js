@@ -25,6 +25,7 @@ class Note extends React.Component {
   }
 
    render() {
+      const {dispatch} = this.props
       if (this.state.editMode == false) {
         return (
           <div>
@@ -39,7 +40,7 @@ class Note extends React.Component {
               </Card.Content>
               <Button.Group attached='bottom'>
                 <Button onClick={ () => this.toggleEditMode()} basic color='green'>Edit</Button>
-                <Button onClick={ () => this.dispatch(deleteNote(this.id))} basic color='red'>Delete</Button>
+                <Button onClick={ () => dispatch(deleteNote())} basic color='red'>Delete</Button>
               </Button.Group>
             
           </Card>
@@ -59,5 +60,6 @@ class Note extends React.Component {
    }
 
 }
+
 
 export default connect()(Note);
