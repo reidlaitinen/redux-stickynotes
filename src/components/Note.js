@@ -6,7 +6,7 @@ import { deleteNote, updateNote } from '../actions/notes';
 class Note extends React.Component {
   state = { editMode: false, ...this.props}
 
-  toggleEditMode() {
+  toggleEditMode = () => {
     this.setState({editMode: !this.state.editMode})
   }
 
@@ -26,6 +26,7 @@ class Note extends React.Component {
 
    render() {
       const {dispatch} = this.props
+      let note = this.props
       if (this.state.editMode == false) {
         return (
           <div>
@@ -40,7 +41,7 @@ class Note extends React.Component {
               </Card.Content>
               <Button.Group attached='bottom'>
                 <Button onClick={ () => this.toggleEditMode()} basic color='green'>Edit</Button>
-                <Button onClick={ () => dispatch(deleteNote())} basic color='red'>Delete</Button>
+                <Button onClick={ () => dispatch(deleteNote(note))} basic color='red'>Delete</Button>
               </Button.Group>
             
           </Card>
